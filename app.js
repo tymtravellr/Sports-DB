@@ -4,10 +4,13 @@ const spinner = display => {
     const spinner = document.getElementById('spinner');
     spinner.style.display = display;
 }
+
 const allPlayers = () => {
+    document.getElementById('player-container').innerHTML = '';
     const searchValue = document.getElementById('search-box').value;
     document.getElementById('search-box').value = '';
     spinner('block');
+
     const url = `https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=${searchValue}`;
     fetch(url)
     .then(response => response.json())
@@ -33,7 +36,6 @@ const displayPlayer = players => {
         `;
         spinner('none');
         playerContainer.appendChild(div);
-        
     });
     console.log(players);
 }
@@ -48,8 +50,9 @@ const details = playerId => {
 const showDetail = player => {
    const detailContainer = document.getElementById('player-detail');
    const div = document.createElement('div');
+   div.classList.add('w-100','mx-auto')
    div.innerHTML = `
-   <div class="card" style="width: 18rem">
+   <div class="card mx-auto " style="width: 18rem">
    <img src="${player.strThumb}" class="card-img-top" alt="..." />
    <div class="card-body">
    <h2>Name: ${player.strPlayer}</h2>
