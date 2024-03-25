@@ -72,34 +72,34 @@ const showDetail = player => {
   detailContainer.appendChild(div);
 }
 
-const searchHistory = (value) => {
-  let history = [];
-  if (localStorage.getItem('searchHistory')) {
-    history = JSON.parse(localStorage.getItem('searchHistory'));
-  }
-  history.push(value);
-  localStorage.setItem('searchHistory', JSON.stringify(history));
-}
+// const searchHistory = (value) => {
+//   let history = [];
+//   if (localStorage.getItem('searchHistory')) {
+//     history = JSON.parse(localStorage.getItem('searchHistory'));
+//   }
+//   history.push(value);
+//   localStorage.setItem('searchHistory', JSON.stringify(history));
+// }
 
-const showHistory = () => {
+// const showHistory = () => {
 
-// history block
-const historyContainer = document.querySelector("#history ul");
-const history = JSON.parse(localStorage.getItem('searchHistory'));
+// // history block
+// const historyContainer = document.querySelector("#history ul");
+// const history = JSON.parse(localStorage.getItem('searchHistory'));
 
-if (history) {
-  document.getElementById('history').style.display = 'block';
-  history.forEach(item => {
-    const li = document.createElement('li');
-    li.innerText = item;
-    historyContainer.appendChild(li);
-  });
-} 
-}
+// if (history) {
+//   document.getElementById('history').style.display = 'block';
+//   history.forEach(item => {
+//     const li = document.createElement('li');
+//     li.innerText = item;
+//     historyContainer.appendChild(li);
+//   });
+// } 
+// }
 
-showHistory();
+// showHistory();
 
-const clearHistory = () => {
-  localStorage.removeItem('searchHistory');
-  document.getElementById('history').style.display = 'none';
-}
+// const clearHistory = () => {
+//   localStorage.removeItem('searchHistory');
+//   document.getElementById('history').style.display = 'none';
+// }
