@@ -1,3 +1,5 @@
+import getCountryCode from "./country";
+
 const placeholder = 'https://via.placeholder.com/400';
 
 const spinner = display => {
@@ -8,7 +10,6 @@ const spinner = display => {
 const allPlayers = () => {
   document.getElementById('player-container').innerHTML = '';
   const searchValue = document.getElementById('search-box').value;
-  searchHistory(searchValue);
   document.getElementById('search-box').value = '';
   spinner('block');
 
@@ -25,12 +26,12 @@ const displayPlayer = players => {
     console.log(player)
     const div = document.createElement('div');
     div.innerHTML = `
-        <div class="card max-w-md w-full border p-5 m-3">
-        <div class="pro-pic">
+        <div class="card max-w-[320px] w-full border p-5 m-3">
+        <div class="relative">
           <img class="w-25" src="${player.strThumb || placeholder}" alt="" />
+          <img class="absolute w-4" src="${getCountryCode(player.strNationality)}" alt="" />
         </div>
-        <h2>Name: ${player.strPlayer}</h2>
-        <h5>Country: ${player.strNationality}</h5>
+        <h2 class="font-semibold uppercase text-center">${player.strPlayer}</h2>
         <div class="allbutton">
           <button class="btn btn-danger">Delete</button>
           <button class="btn btn-success" onclick="details('${player.idPlayer}')">Details</button>
@@ -71,35 +72,3 @@ const showDetail = player => {
    `;
   detailContainer.appendChild(div);
 }
-
-// const searchHistory = (value) => {
-//   let history = [];
-//   if (localStorage.getItem('searchHistory')) {
-//     history = JSON.parse(localStorage.getItem('searchHistory'));
-//   }
-//   history.push(value);
-//   localStorage.setItem('searchHistory', JSON.stringify(history));
-// }
-
-// const showHistory = () => {
-
-// // history block
-// const historyContainer = document.querySelector("#history ul");
-// const history = JSON.parse(localStorage.getItem('searchHistory'));
-
-// if (history) {
-//   document.getElementById('history').style.display = 'block';
-//   history.forEach(item => {
-//     const li = document.createElement('li');
-//     li.innerText = item;
-//     historyContainer.appendChild(li);
-//   });
-// } 
-// }
-
-// showHistory();
-
-// const clearHistory = () => {
-//   localStorage.removeItem('searchHistory');
-//   document.getElementById('history').style.display = 'none';
-// }
