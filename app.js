@@ -21,6 +21,7 @@ const allPlayers = () => {
 const displayPlayer = players => {
     const playerContainer = document.getElementById('player-container');
     players?.forEach(player => {
+      console.log(player)
         const div = document.createElement('div');
         div.innerHTML = `
         <div class="card border p-5 m-3">
