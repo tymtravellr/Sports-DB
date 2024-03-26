@@ -11,7 +11,8 @@ const allPlayers = () => {
     document.getElementById('search-box').value = '';
     spinner('block');
 
-    const url = `https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=${searchValue}`;
+    const url = `https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${searchValue}`;
+    
     fetch(url)
     .then(response => response.json())
     .then(data => displayPlayer(data.player))
@@ -41,7 +42,7 @@ const displayPlayer = players => {
 }
 
 const details = playerId => {
-    const url = `https://www.thesportsdb.com/api/v1/json/2/lookupplayer.php?id=${playerId}`;
+    const url = `https://www.thesportsdb.com/api/v1/json/3/lookupplayer.php?id=${playerId}`;
     fetch(url)
     .then(response => response.json())
     .then(data => showDetail(data.players[0]))
