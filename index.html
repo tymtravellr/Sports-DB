@@ -28,7 +28,8 @@
               <input id="search-box" type="text" class="outline-none py-2 px-4 text-lg" placeholder="player name..."
                 aria-label="Recipient's username" aria-describedby="basic-addon2" />
               <div class="input-group-append">
-                <button onclick="allPlayers()" class="btn btn-outline-secondary bg-black text-white py-2 px-4 rounded" type="button">
+                <button onclick="allPlayers()" class="btn btn-outline-secondary bg-black text-white py-2 px-4 rounded"
+                  type="button">
                   Search
                 </button>
               </div>
@@ -39,8 +40,7 @@
                 <button onclick="clearHistory()">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
@@ -49,19 +49,17 @@
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="row w-100 m-auto">
-          <div id="left" class="col-md-6 w-50 mx-auto text-center">
-
-
-            <div id="player-container" class="player-container"></div>
+      <div class="py-[120px]">
+        <div class="container">
+          <div class="">
+            <div id="player-container" class="player-container flex justify-center flex-wrap"></div>
             <div id="spinner" class="spinner-border mx-auto" role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
-          </div>
-
-          <div id="right" class="col-md-6 w-50 mx-auto text-center">
-            <div class="player-detail" id="player-detail"></div>
+  
+            <div id="right" class="col-md-6 w-50 mx-auto text-center">
+              <div class="player-detail" id="player-detail"></div>
+            </div>
           </div>
         </div>
       </div>

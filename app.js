@@ -1,4 +1,4 @@
-
+const placeholder = 'https://via.placeholder.com/400';
 
 const spinner = display => {
   const spinner = document.getElementById('spinner');
@@ -25,9 +25,9 @@ const displayPlayer = players => {
     console.log(player)
     const div = document.createElement('div');
     div.innerHTML = `
-        <div class="card border p-5 m-3">
+        <div class="card max-w-md w-full border p-5 m-3">
         <div class="pro-pic">
-          <img class="w-25" src="${player.strThumb}" alt="" />
+          <img class="w-25" src="${player.strThumb || placeholder}" alt="" />
         </div>
         <h2>Name: ${player.strPlayer}</h2>
         <h5>Country: ${player.strNationality}</h5>
@@ -81,20 +81,25 @@ const searchHistory = (value) => {
   localStorage.setItem('searchHistory', JSON.stringify(history));
 }
 
+const showHistory = () => {
+
 // history block
 const historyContainer = document.querySelector("#history ul");
 const history = JSON.parse(localStorage.getItem('searchHistory'));
 
 if (history) {
-  document.getElementById('history-title').style.display = 'flex';
+  document.getElementById('history').style.display = 'block';
   history.forEach(item => {
     const li = document.createElement('li');
     li.innerText = item;
     historyContainer.appendChild(li);
   });
 } 
+}
+
+showHistory();
 
 const clearHistory = () => {
   localStorage.removeItem('searchHistory');
-  document.getElementById('history-title').style.display = 'none';
+  document.getElementById('history').style.display = 'none';
 }
